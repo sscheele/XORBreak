@@ -1,0 +1,10 @@
+D:\Programs and Programming\Programming\C#\XOR_Break\bin\Debug\XOR_Break.exe.config
+D:\Programs and Programming\Programming\C#\XOR_Break\bin\Debug\XOR_Break.exe
+D:\Programs and Programming\Programming\C#\XOR_Break\bin\Debug\XOR_Break.pdb
+D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.csprojResolveAssemblyReference.cache
+D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.Form1.resources
+D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.Form2.resources
+D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.Properties.Resources.resources
+D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.csproj.GenerateResource.Cache
+D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.exe
+D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.pdb
