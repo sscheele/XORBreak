@@ -61,6 +61,7 @@ namespace XOR_Break
                 if (isHexString(textBox1.Text)) radioButton2.Checked = true;
             }
             else radioButton2.Enabled = false;
+            updateStr1Val(null, null);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -79,11 +80,12 @@ namespace XOR_Break
                 if (isHexString(textBox2.Text)) radioButton5.Checked = true;
             }
             else radioButton5.Enabled = false;
+            updateStr2Val(null, null);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox3.Text += "XOR of strings is: " + XORTools.bytesToHex(XORTools.xorByteArr(str1Arr, str2Arr)) + "\r\n";
+            textBox3.AppendText("XOR of strings is: " + XORTools.bytesToHex(XORTools.xorByteArr(str1Arr, str2Arr)) + "\r\n");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -107,11 +109,11 @@ namespace XOR_Break
             }
             var sortedFitnesses = keyLengthFitness.OrderBy(x => -x.Value);
             int i = 0;
-            textBox3.Text += "Most probable key lengths are:\r\n";
+            textBox3.AppendText("Most probable key lengths are:\r\n");
             foreach(KeyValuePair<int, double> v in sortedFitnesses)
             {
                 i++;
-                textBox3.Text += v.Key.ToString() + ": " + v.Value.ToString() + "\r\n";
+                textBox3.AppendText(v.Key.ToString() + ": " + v.Value.ToString() + "\r\n");
                 if (i == 10) break;
             }
         }

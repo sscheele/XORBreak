@@ -8,3 +8,13 @@ D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.Propert
 D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.csproj.GenerateResource.Cache
 D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.exe
 D:\Programs and Programming\Programming\C#\XOR_Break\obj\Debug\XOR_Break.pdb
+C:\Users\samsc\Documents\GitHub\XORBreak\bin\Debug\XOR_Break.exe.config
+C:\Users\samsc\Documents\GitHub\XORBreak\obj\Debug\XOR_Break.exe
+C:\Users\samsc\Documents\GitHub\XORBreak\obj\Debug\XOR_Break.pdb
+C:\Users\samsc\Documents\GitHub\XORBreak\bin\Debug\XOR_Break.exe
+C:\Users\samsc\Documents\GitHub\XORBreak\bin\Debug\XOR_Break.pdb
+C:\Users\samsc\Documents\GitHub\XORBreak\obj\Debug\XOR_Break.csprojResolveAssemblyReference.cache
+C:\Users\samsc\Documents\GitHub\XORBreak\obj\Debug\XOR_Break.Form1.resources
+C:\Users\samsc\Documents\GitHub\XORBreak\obj\Debug\XOR_Break.Form2.resources
+C:\Users\samsc\Documents\GitHub\XORBreak\obj\Debug\XOR_Break.Properties.Resources.resources
+C:\Users\samsc\Documents\GitHub\XORBreak\obj\Debug\XOR_Break.csproj.GenerateResource.Cache
