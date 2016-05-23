@@ -85,7 +85,9 @@ namespace XOR_Break
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox3.AppendText("XOR of strings is: " + XORTools.bytesToHex(XORTools.xorByteArr(str1Arr, str2Arr)) + "\r\n");
+            if (radioButton7.Checked) textBox3.AppendText("XOR of strings is: " + XORTools.bytesToHex(XORTools.xorByteArr(str1Arr, str2Arr)) + "\r\n");
+            else if (radioButton8.Checked) textBox3.AppendText("XOR of strings is: " + XORTools.bytesToString(XORTools.xorByteArr(str1Arr, str2Arr)) + "\r\n");
+            else if (radioButton9.Checked) textBox3.AppendText("XOR of strings is: " + Convert.ToBase64String(XORTools.xorByteArr(str1Arr, str2Arr)) + "\r\n");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -124,6 +126,49 @@ namespace XOR_Break
             for (int i = 0; i < inArr.Count; i++)
             {
                 if (inArr[i] > retVal) retVal = inArr[i];
+            }
+            return retVal;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int keyLen = comboBox1.SelectedIndex;
+            List<List<byte>> possibleChars = new List<List<byte>>();
+            for (int i = 0; i < keyLen; i++)
+            {
+                possibleChars.Add(new List<byte>());
+                for (byte currCharVal = 0; currCharVal <= byte.MaxValue; currCharVal++)
+                {
+                    bool isValid = true;
+                    for (int pos = i; pos < str1Arr.Length; pos += keyLen) {
+                        if ((currCharVal ^ str1Arr[pos]) < 32 || (currCharVal ^ str1Arr[pos]) > 127)
+                        {
+                            isValid = false;
+                            pos = str1Arr.Length; //break out of for loop
+                        }
+                    }
+                    if (isValid) possibleChars[i].Add(currCharVal);
+                }
+            }
+        }
+
+        private List<byte[]> findBytePerms(List<byte[]> retVal, List<List<byte>> possiblePerms, byte[] currPerm, int currByteIndex)
+        {
+            if (currByteIndex == possiblePerms.Count)
+            {
+                List<byte[]> temp = new List<byte[]>();
+                temp.Add(currPerm);
+                return temp;
+            }
+            if (currPerm == null)
+            {
+                currPerm = new byte[possiblePerms.Count];
+            }
+            retVal = new List<byte[]>();
+            for (int i = 0; i < possiblePerms[currByteIndex].Count; i++)
+            {
+                currPerm[currByteIndex] = possiblePerms[currByteIndex][i];
+                retVal.AddRange(findBytePerms(retVal, possiblePerms, currPerm, currByteIndex + 1));
             }
             return retVal;
         }
