@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,6 +76,22 @@ namespace XOR_Break
                 retVal[i] = (byte)(message[i] ^ key[i % key.Length]);
             }
             return retVal;
+        }
+
+
+
+        public static bool isHexString(string s)
+        {
+            if (s.Length % 2 != 0) return false;
+            Regex hexPattern = new Regex("^[0-9abcedf]+$");
+            return hexPattern.IsMatch(s.ToLower());
+        }
+
+        public static bool isBase64String(string s)
+        {
+            if (s.Length % 4 != 0) return false;
+            Regex base64Pattern = new Regex("^[a-zA-Z0-9\\=\\+\\/]+$");
+            return base64Pattern.IsMatch(s) && s.Length % 4 == 0;
         }
     }
 }

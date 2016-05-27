@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,33 +33,18 @@ namespace XOR_Break
             else if (radioButton6.Checked) str2Arr = XORTools.stringToBytes(textBox2.Text);
         }
 
-        private bool isHexString(string s)
-        {
-            Regex hexPattern = new Regex("^[0-9abcedf]+$");
-            return hexPattern.IsMatch(s.ToLower());
-        }
-
-        private bool isBase64String(string s)
-        {
-            Regex base64Pattern = new Regex("^[a-zA-Z0-9\\=\\+\\/]+$");
-            return base64Pattern.IsMatch(s) && s.Length % 4 == 0;
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             radioButton2.Enabled = true;
             radioButton3.Enabled = true;
             radioButton1.Checked = true;
-            if (textBox1.Text.Length % 4 == 0)
-            {
-                if (isBase64String(textBox1.Text)) radioButton3.Checked = true;
-            }
+
+            if (XORTools.isBase64String(textBox1.Text)) radioButton3.Checked = true;
             else radioButton3.Enabled = false;
-            if (textBox1.Text.Length % 2 == 0)
-            {
-                if (isHexString(textBox1.Text)) radioButton2.Checked = true;
-            }
+
+            if (XORTools.isHexString(textBox1.Text))  radioButton2.Checked = true;
             else radioButton2.Enabled = false;
+
             updateStr1Val(null, null);
         }
 
@@ -70,16 +54,13 @@ namespace XOR_Break
             radioButton4.Enabled = true;
             radioButton5.Enabled = true;
             radioButton6.Checked = true;
-            if (textBox2.Text.Length % 4 == 0)
-            {
-                if (isBase64String(textBox2.Text)) radioButton4.Checked = true;
-            }
+
+            if (XORTools.isBase64String(textBox2.Text)) radioButton4.Checked = true;
             else radioButton4.Enabled = false;
-            if (textBox2.Text.Length % 2 == 0)
-            {
-                if (isHexString(textBox2.Text)) radioButton5.Checked = true;
-            }
+
+            if (XORTools.isHexString(textBox2.Text)) radioButton5.Checked = true;
             else radioButton5.Enabled = false;
+
             updateStr2Val(null, null);
         }
 
@@ -171,6 +152,14 @@ namespace XOR_Break
                 retVal.AddRange(findBytePerms(retVal, possiblePerms, currPerm, currByteIndex + 1));
             }
             return retVal;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            this.Hide();
+            f.ShowDialog();
+            this.Close();
         }
     }
 }
